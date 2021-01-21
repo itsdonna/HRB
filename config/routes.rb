@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'sessions#home'
   resources :tasks
   resources :users
   resources :projects
