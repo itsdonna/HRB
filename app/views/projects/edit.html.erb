@@ -1,27 +1,5 @@
 <h1> Edit Project <%= @project.name %> </h1>
 
-<%= form_for @project do |f| %>
+<%= render partial: 'form', locals: {project: @project} %>
 
-<div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-</div>
 
-   <div>
-    <%= f.label :contractor %>
-    <%= f.text_field :contractor %>
- </div>
-
- <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
- </div>
-
- <div>
-    <%= f.label :date%>
-    <%= f.date_field :date %>
- </div>
-
-    <%= f.submit %>
-
-    <% end %>
