@@ -1,0 +1,14 @@
+<h1>List of all tasks</h1>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <li><%= task.item %></li>
+    <li><%= task.price %></li>
+    <br>
+    
+    <li><%= link_to 'Edit', edit_project_task_path(task.project, task) %></li> |    
+    <li><%= link_to 'Delete', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </tr>
+<% end %>
+<br>
+<%= link_to 'New Task', new_project_task_path(params[:project_id]) %>
