@@ -1,1 +1,22 @@
-<h1> You have successfully signed in <%= @user.username %> </h1>
+<h1>Welcome <%= current_user.username %>!</h1>
+
+ <% if current_user.tasks.present? %>
+    <h4>Here are your tasks</h4>
+    <br>
+
+</div>
+  <% current_user.tasks.each do |t|%>
+    <div>
+        <p><strong>Project:</strong> <%= t.name %></p>
+        <p><strong>Taks name:</strong> <%= t.name %></p>
+            <% if current_user?(t.user) %>
+              <%= link_to "Edit", edit_task_path(t) %> |
+              <%= link_to "Delete", t, method: :delete, data: { confirm: "Do you want to delete this task ?"}%>
+          <% end %>
+    </div>
+    <hr>
+  <% end %>
+
+  <% else %> 
+    <p>You have made no tasks yet...</p>
+<% end %>
