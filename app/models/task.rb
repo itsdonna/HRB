@@ -5,5 +5,6 @@ class Task < ApplicationRecord
   validates :item, presence: true
   validates :price, presence: true
   
-  accepts_nested_attributes_for :project
+  scope :by_item, -> { order(item: :asc) }
+  
 end
