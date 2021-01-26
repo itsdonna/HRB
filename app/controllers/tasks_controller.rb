@@ -1,14 +1,21 @@
 class TasksController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
+    
     def new
-       @tasks = Task.new
-       @tasks.build_project
+       @project = Project.find(params["project_id"])
+       @task = @project.tasks.build
+    end
+
+    def index
+        @project = Project.find(params["project_id"])
+        @task = @project.tasks
     end
 
     def create
-        @task = Task.new(task_params)
+        @task = current_user.tasks.build(task_params)
+        @task.user = current_user
         if @task.save
-            redirect_to task_path(@task)
+            redirect_to tasks_path(@task)
         else
             render :new
         end
