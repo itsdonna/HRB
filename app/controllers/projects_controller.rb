@@ -8,18 +8,14 @@ class ProjectsController < ApplicationController
     end
     
     def create
-        @project = Project.new(project_params)
+        @project = current_user.projects.build(project_params)
         if @project.save
-            redirect_to project_path
+            redirect_to project_path(@project)
         else
             render :new
         end
     end
-
-    def show
-        @project = Project.find(params[:id])
-    end
-    
+  
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @projects = @user.projects
@@ -35,6 +31,11 @@ class ProjectsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @project.destroy
+        redirect_to projects_path
     end
 
     private
