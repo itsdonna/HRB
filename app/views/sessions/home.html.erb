@@ -4,9 +4,10 @@
 			<h1 class="title">
                 Build Your Home Restoration Budget! 
             </h1>
+		<% if session[:user_id] %>
+   			 <p>You are logged in!</p>
+		<% end %> 
         </div>
 	</div>
 </section>
 
-<h3> <%= link_to 'Log In', '/login' %> |
- <%= link_to 'Sign Up', '/signup' %> </h3>
