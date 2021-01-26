@@ -9,10 +9,17 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
-  resources :tasks
-  resources :users
-  resources :projects do
-    resoureces :tasks, only [:new, :create, :index]
+  resources :tasks 
+  
+  resources :users do
+    resources :tasks
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :projects do
+       resources :tasks
+  end
+
+  get '/auth/:google_oath2/callback' => 'sessions#google'
+
 end
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
