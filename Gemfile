@@ -28,6 +28,7 @@ gem 'bootstrap', '~> 4.0.0'
 # gem 'image_processing', '~> 1.2'
 
 #omniauth
+
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
