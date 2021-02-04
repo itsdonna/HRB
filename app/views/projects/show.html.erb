@@ -6,7 +6,13 @@
 <li> Description: <%= @project.description %> </li>
 <li> Date: <%= @project.date %></li>
 
+<h4> Tasks: </h4>
+<% @project.tasks.each do |t|%>
+<li> <strong> <%= t.user.username%> </strong> tasks "<%= link_to t.item, task_path(t)%>" </li>
+<% end %>
+
+<p> <%= link_to 'All Tasks', project_tasks_path(@project) %> </p>
 <p> <%= link_to 'Edit Project', edit_project_path(@project) %> </p>
-<p> <%= link_to 'Add New Project', new_project_task_path(@project) %> </p>
+<p> <%= link_to 'Add New Project', new_project_path(@project) %> </p>
 <br>
-  <p><%= link_to 'Go back', projects_path %></p>
+<p><%= link_to 'Go back', projects_path %></p>
