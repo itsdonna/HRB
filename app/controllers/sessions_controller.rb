@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = User.find_by(email: params[:user][:email])
+        user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             redirect_to user_path(user)
@@ -17,19 +17,15 @@ class SessionsController < ApplicationController
 
     def destroy 
         session.delete(:user_id)
-        redirect_to '/'
+        redirect_to root_path
     end
 
-    def google
-        user = User.find_or_create_from_omniauth(auth)
-        if user.save
-          session[:user_id] = user.id
-          redirect_to user_path(user)
-        else
-          redirect_to root_path
-        end
+    def googleAuth
+        @user = User.create_by_google_omniauth(auth)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
-      
+    
     private
 
     def auth
