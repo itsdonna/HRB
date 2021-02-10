@@ -1,12 +1,24 @@
 <h1>Welcome <%= current_user.username %>!</h1>
 
- <% if current_user.tasks.present? %>
-    <h4>Here are your tasks</h4>
+ <% if current_user.projects.present? %>
+    <h4> Here are your projects </h4>
+
+<ul>
+    <% current_user.projects.each do |project| %>
+    <li> Name: <%= project.contractor %></li>
+    <li><%= link_to project.name, project_path(project) %></li>
+    <li> Description: <%= project.description %> </li>
     <br>
+
+<% end %>
+</ul>
+
+
+
 
 </div>
   
 
   <% else %> 
-    <p>You have made no tasks yet...</p>
+    <p>You have made no projects yet...</p>
 <% end %>

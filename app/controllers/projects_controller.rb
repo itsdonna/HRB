@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     end
 
     def index
-        @project = Project.alpha
+        @projects = Project.alpha
     end
 
     def edit 

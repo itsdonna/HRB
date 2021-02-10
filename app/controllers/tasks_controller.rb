@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        if params[:project_id] && @project = Project.find_by_id(params[:post_id])
+        if params[:project_id] && @project = Project.find_by_id(params[:project_id])
             @tasks = @project.tasks
         else
             @tasks = Task.alpha
@@ -10,8 +10,8 @@ class TasksController < ApplicationController
     end
 
     def new
-        if params[:project_id] && @project = Project.find_by_id(params[:post_id])
-            @task = @project.task.build
+        if params[:project_id] && @project = Project.find_by_id(params[:project_id])
+            @task = @project.tasks.build
         else
             @task = Task.new
         end
