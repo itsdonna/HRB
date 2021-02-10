@@ -1,24 +1,18 @@
-# README
+# HRB (Home Remodel Budget)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HRB is a Ruby on Rails application for your DIYer. HRB allows you to keep track of projects, task, and price. 
 
-Things you may want to cover:
+## ## Installing / Getting started
 
-* Ruby version
+Run `bundle install`; this will install gem dependencies from the included `Gemfile` generating the needed `Gemfile.lock` file.
 
-* System dependencies
+`bundle install`
 
-* Configuration
+## Usage
 
-* Database creation
+This Ruby on Rails application will function on a local server simulating an online experience. Use the Ruby on Rails Server or your preferred environment to accomplish this.
+[Rails Server](https://guides.rubyonrails.org/getting_started.html)
 
-* Database initialization
+### Built With
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby on Rails, Ruby, Active Record, Html, CSS
