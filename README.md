@@ -2,7 +2,7 @@
 
 HRB is a Ruby on Rails application for your DIYer. HRB allows you to keep track of projects, task, and price. 
 
-## ## Installing / Getting started
+## Installing / Getting started
 
 Run `bundle install`; this will install gem dependencies from the included `Gemfile` generating the needed `Gemfile.lock` file.
 
