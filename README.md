@@ -16,3 +16,7 @@ This Ruby on Rails application will function on a local server simulating an onl
 ### Built With
 
 Ruby on Rails, Ruby, Active Record, Html, CSS
+
+## Licensing
+
+This application is licensed under the [MIT License](LICENSE).
