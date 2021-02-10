@@ -19,7 +19,7 @@ class User < ApplicationRecord
       User.find_or_create_by(uid: auth[:uid]) do |u|
           u.username = auth[:info][:name]
           u.email = auth[:info][:email]
-          u.password = SecureRandom.hex(8)
+          u.password = SecureRandom.hex
       end
     end
   

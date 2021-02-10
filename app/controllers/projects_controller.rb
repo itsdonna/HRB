@@ -20,11 +20,17 @@ class ProjectsController < ApplicationController
     end
 
     def index
-        @projects = Project.alpha
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @projects = Project.all
+            
+        else
+            @projects = Project.alpha
+        end
+        # @projects = Project.alpha
     end
 
     def edit 
-        # @project = Project.find_by_id(params[:id])
+        @project = Project.find_by_id(params[:id])
     end
 
     def update
@@ -42,8 +48,9 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
+        @project = Project.find_by(params[:id])
         @project.destroy
-        redirect_to project_path
+        redirect_to '/'
     end
 
     private

@@ -15,6 +15,7 @@
 <p> <%= link_to 'Edit Project', edit_project_path(@project) %> </p>
 <p> <%= link_to 'Add New Project',new_project_path %> </p>
 <p> <%= link_to 'Add New Task', new_project_task_path(@project) %> </p>
+<p><%= button_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
 <br>
 
 <p><%= link_to 'Go back', projects_path %></p>
